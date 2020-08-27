@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>撩人的按钮特效</title>
+    <style>
+      /* 下滑箱特效 */
+      .bottom-but {
+        outline: none;
+        border: none;
+        z-index: 1;
+        position: relative;
+        color: white;
+        background: #40a9ff;
+        padding: 0.5em 1em;
+        border-radius: 3px;
+      }
+
+      .bottom-but::before {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 3px;
+        background-color: #fa541c;
+        transform-origin: center bottom;
+        transform: scaleY(0);
+        transition: transform 0.4s ease-in-out;
+      }
+
+      .bottom-but:hover {
+        cursor: pointer;
+      }
+
+      .bottom-but:hover::before {
+        transform-origin: center top;
+        transform: scaleY(1);
+      }
+
+      /* 上滑箱特效 */
+      .top-but {
+        outline: none;
+        border: none;
+        z-index: 1;
+        position: relative;
+        color: white;
+        background: #40a9ff;
+        padding: 0.5em 1em;
+        border-radius: 3px;
+      }
+
+      .top-but::before {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 3px;
+        background-color: #fa541c;
+        transform-origin: center top;
+        transform: scaleY(0);
+        transition: transform 0.4s ease-in-out;
+      }
+
+      .top-but:hover {
+        cursor: pointer;
+      }
+
+      .top-but:hover::before {
+        transform-origin: center bottom;
+        transform: scaleY(1);
+      }
+
+      /* 左滑箱特效 */
+      .left-but {
+        outline: none;
+        border: none;
+        z-index: 1;
+        position: relative;
+        color: white;
+        background: #40a9ff;
+        padding: 0.5em 1em;
+        border-radius: 3px;
+      }
+
+      .left-but::before {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 3px;
+        background-color: #fa541c;
+        transform-origin: center left;
+        transform: scaleX(0);
+        transition: transform 0.4s ease-in-out;
+      }
+
+      .left-but:hover {
+        cursor: pointer;
+      }
+
+      .left-but:hover::before {
+        transform-origin: center right;
+        transform: scaleX(1);
+      }
+
+      /* 右滑箱特效 */
+      .right-but {
+        outline: none;
+        border: none;
+        z-index: 1;
+        position: relative;
+        color: white;
+        background: #40a9ff;
+        padding: 0.5em 1em;
+        border-radius: 3px;
+      }
+
+      .right-but::before {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 3px;
+        background-color: #fa541c;
+        transform-origin: center right;
+        transform: scaleX(0);
+        transition: transform 0.4s ease-in-out;
+      }
+
+      .right-but:hover {
+        cursor: pointer;
+      }
+
+      .right-but:hover::before {
+        transform-origin: center left;
+        transform: scaleX(1);
+      }
+
+    </style>
+  </head>
+  <body>
+    <button class="bottom-but">下滑箱特效</button>
+    <button class="top-but">上滑箱特效</button>
+    <button class="left-but">左滑箱特效</button>
+    <button class="right-but">右滑箱特效</button>
+  </body>
+</html>
