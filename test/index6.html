@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Svg圆形进度条</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page-container {
+      width: 600px;
+      height: 600px;
+    }
+
+    /* 
+      1. translateY位移是因为circle的stroke-width存在宽度，旋转后会产生位移 2 * stroke-width
+      2. stroke-dasharray的长度可以通过计算圆周长 2 * 3.14 * r
+    */
+    .cirle-progress {
+      transform-origin: center center;
+      transform: translateY(-10px) rotate(-90deg) ;
+      animation: circleAnimation 5s linear infinite;
+    }
+
+    @keyframes circleAnimation {
+      0% {
+        stroke-dasharray: 0 314;
+      }
+
+      100% {
+        stroke-dasharray: 314 0;
+      } 
+    }
+
+    .rect-progress {
+      animation: rectAnimation 5s linear infinite;
+    }
+
+    @keyframes rectAnimation {
+      0% {
+        stroke-dasharray: 0 400;
+      }
+
+      100% {
+        stroke-dasharray: 400 0;
+      } 
+    }    
+  </style>
+</head>
+
+<body>
+  <div class="page-container">
+    <svg width="150" height="150">
+      <circle cx="70" cy="70" r="50" fill="none" stroke="#d1d3d7" stroke-width="5" /> 
+      <circle class="cirle-progress" cx="70" cy="70" r="50" fill="none" stroke="#409EFF" stroke-width="5" />    
+    </svg>
+
+    <svg width="150" height="150">
+      <rect x="10" y="30" width="120" height="80" fill="none" stroke="#d1d3d7" stroke-width="5" />
+      <rect class="rect-progress" x="10" y="30" width="120" height="80" fill="none" stroke="#409EFF" stroke-width="5" /> 
+    </svg>    
+  </div>
+</body>
+</html>

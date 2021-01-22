@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Svg形状变形动画</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page-container {
+      width: 600px;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;      
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="page-container">
+    <svg width="200" height="200" viewBox="0 0 200 200">
+      <rect x="0" y="0" width="10" height="10" fill="red">
+        <animateMotion
+          path="M 10 10 L 110 10 L 110 110 L 10 110 Z"
+          dur="5s"
+          rotate="auto"
+          fill="freeze"
+          repeatCount="indefinite"
+        />
+      </rect>
+      <path id="motion-path" d="M 10 10 L 110 10 L 110 110 L 10 110 Z" fill="none" stroke="green" />
+    </svg>
+  </div>
+</body>
+</html>

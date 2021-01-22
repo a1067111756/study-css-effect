@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Svg形状变形动画</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page-container {
+      width: 600px;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-container">
+    <svg viewBox="0 0 200 200" width="200" height="200">
+      <rect x="0" y="0" rx="0" ry="0" width="10" height="10" fill="red">
+        <animateMotion id="forward-rect" path="M 10 10 L 110 10 L 110 110 L 10 110" dur="2s" rotate="0" fill="freeze"
+          begin="0; backward-rect.end + 0.5s" />
+        <animateMotion id="backward-rect" path="M 10 110 L 110 110 L 110 10 L 10 10" dur="2s" rotate="0" fill="freeze"
+          begin="forward-rect.end + 0.5s" />
+        <animate id="red-to-blue" attributeType="XML" attributeName="fill" begin="0; blue-to-red.end + 1s" from="red"
+          to="blue" dur="2s" fill="freeze" />
+        <animate id="blue-to-red" attributeType="XML" attributeName="fill" begin="red-to-blue.end + 1s" from="blue"
+          to="red" dur="2s" fill="freeze" />
+      </rect>
+      <path d="M 10 10 L 110 10 L 110 110 L 10 110" fill="none" stroke-width="1" stroke="blue" />
+    </svg>
+  </div>
+</body>
+
+</html>
